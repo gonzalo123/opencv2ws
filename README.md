@@ -1,4 +1,4 @@
-## Live stream over websockets with Python and OpenCV
+## Live stream over WebSocket with Python and OpenCV
 
 In this article, we will conduct a small experiment. We will stream the live feed from a camera (for example, my laptop's camera) and transmit it using WebSockets to a web browser. In a real-life application, I would use a Django application, an MQTT broker as an event bus, and pure WebSockets with Django Channels. However, here we will use a minimal Flask application and WebSockets with the Socket.io library. Here is the application:
 
@@ -76,6 +76,6 @@ And finally the cliente part:
 </html>
 ```
 
-Here we obtain the binary data of the image from the Websocket, convert to base64 and put in an image's src.
+Here, we obtain the binary data of the image from the WebSocket, convert it to base64, and place it in the src attribute of an image.
 
 And that's all. Our live stream from a camera in our browser.
