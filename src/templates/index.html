@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>Video Streaming Example</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.0/socket.io.js"></script>
+</head>
+<body>
+<img id="video-frame" src=""/>
+<script type="text/javascript">
+    (function () {
+        let socket = io();
+        let img = document.getElementById('video-frame');
+
+        socket.on('frame', function (frameData) {
+            let byteArray = new Uint8Array(frameData);
+            let binaryData = '';
+            for (var i = 0; i < byteArray.length; i++) {
+                binaryData += String.fromCharCode(byteArray[i]);
+            }
+            img.src = 'data:image/jpeg;base64,' + btoa(binaryData);
+        });
+    })();
+</script>
+</body>
+</html>
